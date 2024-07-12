@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("employee-email").value;
     const password = document.getElementById("employee_password").value;
     const role = document.getElementById("employee-role").value;
-    await api.addEmployee({ name, email, pass, role });
+    await api.addEmployee({ name, email, password, role });
     loadEmployees();
   });
 
