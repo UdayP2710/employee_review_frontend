@@ -31,6 +31,7 @@ export const api = {
     }
   },
   addEmployee: async (formData) => {
+    console.log("addemployeefn");
     const response = await fetch(`${apiBaseUrl}/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
