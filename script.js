@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const name = document.getElementById("employee-name").value;
     const email = document.getElementById("employee-email").value;
-    const password = document.getElementById("employee_password").value;
+    const password = document.getElementById("employee-password").value;
     const role = document.getElementById("employee-role").value;
     await api.addEmployee({ name, email, password, role });
     loadEmployees();
