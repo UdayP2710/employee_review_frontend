@@ -22,13 +22,36 @@
           <button type="submit">Login</button>
         </form>
       </div>
+       <div id="register">
+        <form id="employee-form">
+          <input type="text" id="employee-name" placeholder="Name" required />
+          <input
+            type="email"
+            id="employee-email"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="text"
+            id="employee-password"
+            placeholder="Password"
+            required
+          />
+          <select id="employee-role">
+            <option value="employee">Employee</option>
+            <option value="admin">Admin</option>
+          </select>
+          <button type="submit">Add/Update Employee</button>
+        </form>
+      </div>
+
 
       <!-- Admin Dashboard -->
       <div id="admin-dashboard" class="dashboard" style="display: none">
         <h2>Admin Dashboard</h2>
         <button onclick="logout()">Logout</button>
         <div id="employee-management">
-          <h3>Employee Management</h3>
+<!--           <h3>Employee Management</h3>
           <form id="employee-form">
             <input type="text" id="employee-name" placeholder="Name" required />
             <input
@@ -42,7 +65,7 @@
               <option value="admin">Admin</option>
             </select>
             <button type="submit">Add/Update Employee</button>
-          </form>
+          </form> -->
           <ul id="employee-list"></ul>
         </div>
         <div id="review-management">
