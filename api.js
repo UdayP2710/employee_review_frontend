@@ -12,6 +12,7 @@ export const api = {
   loginUser: async (formData) => {
     const response = await fetch(`${apiBaseUrl}/users/login`, {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
