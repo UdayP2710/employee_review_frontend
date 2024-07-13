@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const reviewForm = document.getElementById("review-form");
   const feedbackForm = document.getElementById("feedback-form");
    const employe_edit_form = document.getElementById("employee-edit-form");
+    const logindashboard = document.getElementById("login-dashboard");
   let currentUser = null;
   // Helper functions
   const showElement = (element) => (element.style.display = "block");
@@ -113,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(user);
     if (user.status === true) {
       currentUser = user.user;
-      hideElement(loginForm);
+      hideElement(logindashboard);
       if (currentUser.role === "admin") {
         showElement(adminDashboard);
         loadEmployees();
