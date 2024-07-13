@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currentUser = null;
     hideElement(adminDashboard);
     hideElement(employeeDashboard);
-    showElement(loginForm);
+    showElement(logindashboard);
   };
   const loadEmployees = async () => {
     const employees = await api.getAllEmployees();
