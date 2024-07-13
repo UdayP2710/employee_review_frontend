@@ -98,6 +98,27 @@
         </div>
       </div>
     </div>
+     <div id="update-employee-form" style="display: none">
+      <form id="employee-edit-form" style="display: none">
+        <input
+          type="text"
+          id="employee-edit-name"
+          placeholder="Name"
+          required
+        />
+        <input
+          type="email"
+          id="employee-edit-email"
+          placeholder="Email"
+          required
+        />
+        <select id="employee-edit-role">
+          <option value="employee">Employee</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Update Employee</button>
+      </form>
+    </div>
     <script type="module" src="api.js"></script>
     <script type="module" src="script.js"></script>
   </body>
