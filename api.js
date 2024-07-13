@@ -7,7 +7,7 @@ export const api = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-    return response.json();
+    handleRespone(response);
   },
   loginUser: async (formData) => {
     const response = await fetch(`${apiBaseUrl}/users/login`, {
@@ -16,7 +16,7 @@ export const api = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-    return response.json();
+    handleRespone(response);
   },
   getAllEmployees: async () => {
     console.log("getallfrontend");
@@ -24,46 +24,45 @@ export const api = {
       method: "GET",
       credentials: "include",
     });
-    if (!response.ok) {
-      alert("failed response!!!!!");
-    } else {
-      return response.json();
-    }
+    handleRespone(response);
   },
   addEmployee: async (formData) => {
-    console.log("addemployeefn");
+    console.log("addemployefn");
     const response = await fetch(`${apiBaseUrl}/users/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-    return response.json();
+    handleRespone(response);
   },
   makeAdmin: async (id, formData) => {
     const response = await fetch(`${apiBaseUrl}/users/${id}`, {
       method: "PUT",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-    return response.json();
+    handleRespone(response);
   },
   updateEmployee: async (id, formData) => {
     const response = await fetch(`${apiBaseUrl}/users/${id}`, {
       method: "PUT",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-    return response.json();
+    handleRespone(response);
   },
   deleteEmployee: async (id) => {
     const response = await fetch(`${apiBaseUrl}/users/${id}`, {
       method: "DELETE",
+      credentials: "include",
     });
-    return response.json();
+    handleRespone(response);
   },
   getAllReviews: async () => {
     const response = await fetch(`${apiBaseUrl}/reviews`);
-    return response.json();
+    handleRespone(response);
   },
   createReview: async (formData) => {
     const response = await fetch(`${apiBaseUrl}/reviews`, {
@@ -71,7 +70,7 @@ export const api = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-    return response.json();
+    handleRespone(response);
   },
   updateReview: async (id, formData) => {
     const response = await fetch(`${apiBaseUrl}/reviews/${id}`, {
@@ -79,7 +78,7 @@ export const api = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-    return response.json();
+    handleRespone(response);
   },
   assignReviewer: async (id, formData) => {
     const response = await fetch(
@@ -90,7 +89,7 @@ export const api = {
         body: JSON.stringify(formData),
       }
     );
-    return response.json();
+    handleRespone(response);
   },
   submitFeedback: async (id, formData) => {
     const response = await fetch(
@@ -101,12 +100,19 @@ export const api = {
         body: JSON.stringify(formData),
       }
     );
-    return response.json();
+    handleRespone(response);
   },
   getReviewsForReviewer: async (reviewerId) => {
     const response = await fetch(
       `${apiBaseUrl}/reviews/reviewer/${reviewerId}`
     );
-    return response.json();
+    handleRespone(response);
   },
 };
+function handleRespone(response) {
+  if (!response.ok) {
+    alert("failed response!!!!!");
+  } else {
+    return response.json();
+  }
+}
