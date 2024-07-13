@@ -167,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
       await api.updateEmployee(id, { name, email, role });
       hideElement(employe_edit_form);
       showElement(adminDashboard);
+      loadEmployees();
     });
   };
 
