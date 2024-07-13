@@ -158,8 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     assignReviewerform.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const reviewid = document.getElementById("review-id");
-    const reviewerId = document.getElementById("reviewer-id");
+    const reviewid = document.getElementById("review-id").value;
+    const reviewerId = document.getElementById("reviewer-id").value;
     await api.assignReviewer(reviewid, reviewerId);
   });
 
