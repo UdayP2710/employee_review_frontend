@@ -155,18 +155,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   window.editEmployee = async (id) => {
-    const employee = await api.getEmployeeById(id);
-    document.getElementById("employee-name").value = employee.name;
-    document.getElementById("employee-email").value = employee.email;
-    document.getElementById("employee-role").value = employee.role;
-    employeeForm.onsubmit = async (e) => {
+    showElement(employe_edit_form);
+    hideElement(adminDashboard);
+    employe_edit_form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const name = document.getElementById("employee-name").value;
-      const email = document.getElementById("employee-email").value;
-      const role = document.getElementById("employee-role").value;
+      const name = document.getElementById("employee-edit-name").value;
+      const email = document.getElementById("employee-edit-email").value;
+      const role = document.getElementById("employee-edit-role").value;
       await api.updateEmployee(id, { name, email, role });
-      loadEmployees();
-    };
+      hideElement(employe_edit_form);
+      showElement(adminDashboard);
+    });
   };
 
   window.deleteEmployee = async (id) => {
