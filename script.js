@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const employeeForm = document.getElementById("employee-form");
   const reviewForm = document.getElementById("review-form");
   const feedbackForm = document.getElementById("feedback-form");
+   const employe_edit_form = document.getElementById("employee-edit-form");
   let currentUser = null;
   // Helper functions
   const showElement = (element) => (element.style.display = "block");
