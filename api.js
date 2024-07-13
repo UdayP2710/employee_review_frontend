@@ -130,13 +130,13 @@ export const api = {
       return response.json();
     }
   },
-  assignReviewer: async (id, formData) => {
+  assignReviewer: async (id, reviewerId) => {
     const response = await fetch(
       `${apiBaseUrl}/reviews/assign-reviewer/${id}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(reviewerId),
       }
     );
     if (!response.ok) {
