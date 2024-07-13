@@ -140,11 +140,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   reviewForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const employeeId = document.getElementById("review-employee").value;
-    const reviewerIds = Array.from(
-      document.getElementById("review-reviewers").selectedOptions
-    ).map((option) => option.value);
-    await api.createReview({ employeeId, reviewerIds });
+    const employee = document.getElementById("review-employee").value;
+    const reviewers = document.getElementById("review-reviewers").value;
+    
+    await api.createReview({ employee, reviewers });
     loadReviews();
   });
 
