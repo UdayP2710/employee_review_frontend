@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedbackForm = document.getElementById("feedback-form");
    const employe_edit_form = document.getElementById("employee-edit-form");
     const logindashboard = document.getElementById("login-dashboard");
+   const assignReviewerform = document.getElementById("assign-reviewer");
   let currentUser = null;
   // Helper functions
   const showElement = (element) => (element.style.display = "block");
@@ -153,6 +154,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const text = document.getElementById("feedback-text").value;
     await api.submitFeedback(reviewId, { reviewerId: currentUser._id, text });
     loadFeedbacks();
+  });
+
+    assignReviewerform.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const reviewid = document.getElementById("review-id");
+    const reviewerId = document.getElementById("reviewer-id");
+    await api.assignReviewer(reviewid, reviewerId);
   });
 
   window.editEmployee = async (id) => {
