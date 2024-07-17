@@ -75,36 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       )
       .join("");
   };
-  const loadFeedbacks = async () => {
-    const reviews = await api.getReviewsForReviewer(currentUser._id);
-    const feedbackReviewSelect = document.getElementById("feedback-review");
-    const feedbackList = document.getElementById("feedback-list");
-    feedbackReviewSelect.innerHTML = reviews
-      .map(
-        (review) => `
-            <option value="${review._id}">Review for ${review.employee.name}</option>
-        `
-      )
-      .join("");
-    feedbackList.innerHTML = reviews
-      .map(
-        (review) => `
-            <li>
-                Review for ${review.employee.name}
-                <ul>
-                    ${review.feedback
-                      .map(
-                        (fb) => `
-                        <li>${fb.reviewer.name}: ${fb.text}</li>
-                    `
-                      )
-                      .join("")}
-                </ul>
-            </li>
-        `
-      )
-      .join("");
-  };
+  
 
   // Event listeners
   loginForm.addEventListener("submit", async (e) => {
@@ -122,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loadReviews();
       } else {
         showElement(employeeDashboard);
-        loadFeedbacks();
+        
       }
     } else {
       alert("Invalid credentials");
@@ -145,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const reviewers = document.getElementById("review-reviewers").value;
     
     await api.createReview({ employee, reviewers });
-    // loadReviews();
+    
   });
 
   feedbackForm.addEventListener("submit", async (e) => {
@@ -153,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const reviewId = document.getElementById("feedback-reviewer-id").value;
     const text = document.getElementById("feedback-text").value;
     await api.submitFeedback(reviewId, { reviewerId: currentUser._id, text });
-    // loadFeedbacks();
+    
   });
 
     assignReviewerform.addEventListener("submit", async (e) => {
