@@ -1,4 +1,4 @@
-const apiBaseUrl = "http://localhost:6500";
+const apiBaseUrl = "https://employee-feedback2-1.onrender.com";
 
 export const api = {
   registerUser: async (formData) => {
