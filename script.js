@@ -145,15 +145,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const reviewers = document.getElementById("review-reviewers").value;
     
     await api.createReview({ employee, reviewers });
-    loadReviews();
+    // loadReviews();
   });
 
   feedbackForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const reviewId = document.getElementById("feedback-review").value;
+    const reviewId = document.getElementById("feedback-reviewer-id").value;
     const text = document.getElementById("feedback-text").value;
     await api.submitFeedback(reviewId, { reviewerId: currentUser._id, text });
-    loadFeedbacks();
+    // loadFeedbacks();
   });
 
     assignReviewerform.addEventListener("submit", async (e) => {
