@@ -17,7 +17,6 @@ export const api = {
   loginUser: async (formData) => {
     const response = await fetch(`${apiBaseUrl}/users/login`, {
       method: "POST",
-      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
@@ -32,7 +31,6 @@ export const api = {
     console.log("getallfrontend");
     const response = await fetch(`${apiBaseUrl}/users`, {
       method: "GET",
-      credentials: "include",
     });
     if (!response.ok) {
       alert("failed response!!!!!");
@@ -58,7 +56,6 @@ export const api = {
   makeAdmin: async (id, formData) => {
     const response = await fetch(`${apiBaseUrl}/users/${id}`, {
       method: "PUT",
-      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
@@ -72,7 +69,6 @@ export const api = {
   updateEmployee: async (id, formData) => {
     const response = await fetch(`${apiBaseUrl}/users/${id}`, {
       method: "PUT",
-      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
@@ -86,7 +82,6 @@ export const api = {
   deleteEmployee: async (id) => {
     const response = await fetch(`${apiBaseUrl}/users/${id}`, {
       method: "DELETE",
-      credentials: "include",
     });
     if (!response.ok) {
       alert("failed response!!!!!");
